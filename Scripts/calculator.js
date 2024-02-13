@@ -16,6 +16,7 @@ function calculateAreaOfATriangle(){
     const areaOutput = document.getElementById("area-triangle");
     areaOutput.innerText = area;
 }
+
 function calculateAreaOfARectangle(){
     //-----Width of the Rectangle
     const widthInputField = document.getElementById("rectangle-width");
@@ -34,24 +35,26 @@ function calculateAreaOfARectangle(){
     const areaOutput = document.getElementById("area-rectangle");
     areaOutput.innerText = area;
 }
-function calculateAreaOfAParallelogram(){
-    //-----Base of the Parallelogram
-    const baseInputField = document.getElementById("parallelogram-base");
-    const baseValue = baseInputField.value;
-    const base = parseFloat(baseValue);
-    //-----Height of the Parallelogram
-    const heightInputField = document.getElementById("parallelogram-height");
-    const heightValue = heightInputField.value;
-    const height = parseFloat(heightValue);
+
+// function calculateAreaOfAParallelogram(){
+//     //-----Base of the Parallelogram
+//     const baseInputField = document.getElementById("parallelogram-base");
+//     const baseValue = baseInputField.value;
+//     const base = parseFloat(baseValue);
+//     //-----Height of the Parallelogram
+//     const heightInputField = document.getElementById("parallelogram-height");
+//     const heightValue = heightInputField.value;
+//     const height = parseFloat(heightValue);
     
-    //-----Area of a Parallelogram
-    const area = base*height;
-    console.log(area);
+//     //-----Area of a Parallelogram
+//     const area = base*height;
+//     console.log(area);
     
-    //-----Display the area
-    const areaOutput = document.getElementById("area-parallelogram");
-    areaOutput.innerText = area;
-}
+//     //-----Display the area
+//     const areaOutput = document.getElementById("area-parallelogram");
+//     areaOutput.innerText = area;
+// }
+
 function calculateAreaOfARhombus(){
     //-----First side of the Rhombus
     const firstSideInputField = document.getElementById("rhombus-first-side");
@@ -70,6 +73,7 @@ function calculateAreaOfARhombus(){
     const areaOutput = document.getElementById("area-rhombus");
     areaOutput.innerText = area;
 }
+
 function calculateAreaOfAPentagon(){
     //-----Perimeter of the Pentagon
     const perimeterInputField = document.getElementById("pentagon-perimeter");
@@ -88,6 +92,7 @@ function calculateAreaOfAPentagon(){
     const areaOutput = document.getElementById("area-pentagon");
     areaOutput.innerText = area;
 }
+
 function calculateAreaOfAEllipse(){
     //-----Axis of the Ellipse
     const axisInputField = document.getElementById("ellipse-axis");
@@ -105,4 +110,27 @@ function calculateAreaOfAEllipse(){
     //-----Display the area
     const areaOutput = document.getElementById("area-ellipse");
     areaOutput.innerText = area;
+}
+
+//NOTE: This method is for the sole purpose of reducing the over all work done previously
+//-----Calculating Area for all purpose
+function calculateAreaOfAParallelogram(){
+    const base = getInputValueById("parallelogram-base");
+
+    const height = getInputValueById("parallelogram-height");
+
+    const area = base*height;
+
+    setAreaValueById("area-parallelogram",area);
+    
+}
+function getInputValueById(inputFieldId){
+    const inputField = document.getElementById(inputFieldId);
+    const inputValueText = inputField.value;
+    const inputValue = parseFloat(inputValueText);
+    return inputValue;
+}
+function setAreaValueById(areaId,area){
+    const element = document.getElementById(areaId);
+    element.innerText = area;
 }
